@@ -12,8 +12,8 @@ public class MainActivity extends AppCompatActivity implements RulerView.OnRuler
     private TextView mRulerValue;
     public final String TAG = this.getClass().getSimpleName();
     @Override
-    public void onCreate(@Nullable Bundle savedInstanceState, @Nullable PersistableBundle persistentState) {
-        super.onCreate(savedInstanceState, persistentState);
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
         mRulerView = findViewById(R.id.ruler_view);
@@ -27,8 +27,4 @@ public class MainActivity extends AppCompatActivity implements RulerView.OnRuler
         mRulerValue.setText("身高 ："+value);
     }
 
-    @Override
-    public void onPointerCaptureChanged(boolean hasCapture) {
-
-    }
 }
