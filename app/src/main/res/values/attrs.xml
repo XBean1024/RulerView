@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="ruler_view_attrs">
+        <attr name="graduation_color" format="color"/>
+        <attr name="graduation_start_value" format="integer"/>
+        <attr name="offset_left" format="integer"/>
+    </declare-styleable>
+</resources>
