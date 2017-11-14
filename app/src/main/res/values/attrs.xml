@@ -4,5 +4,6 @@
         <attr name="graduation_color" format="color"/>
         <attr name="graduation_start_value" format="integer"/>
         <attr name="offset_left" format="integer"/>
+        <attr name="ruler_start_value" format="integer"/>
     </declare-styleable>
 </resources>

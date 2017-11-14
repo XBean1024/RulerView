@@ -12,7 +12,6 @@ import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.MotionEvent;
-import android.view.View;
 
 
 /**
@@ -23,7 +22,7 @@ import android.view.View;
  * function : 绘制一个尺子
  */
 
-public class RulerView extends View {
+public class RulerView extends BaseView {
     private Paint mPaint;
 
     private int mViewWidth;//布局中设置的宽度
@@ -91,39 +90,7 @@ public class RulerView extends View {
         setMeasuredDimension(mViewWidth, mViewHeight);
     }
 
-    private int measureHeight(int measureSpec) {
-        int result = 0;
-        int mode = MeasureSpec.getMode(measureSpec);
-        int size = MeasureSpec.getSize(measureSpec);
 
-        if (mode == MeasureSpec.EXACTLY) {
-            result = size;
-        } else {
-            result = 300;
-            if (mode == MeasureSpec.AT_MOST) {
-                result = Math.min(result, size);
-            }
-        }
-        return result;
-
-    }
-
-    private int measureWidth(int measureSpec) {
-        int result = 0;
-        int mode = MeasureSpec.getMode(measureSpec);
-        int size = MeasureSpec.getSize(measureSpec);
-
-        if (mode == MeasureSpec.EXACTLY) {
-            result = size;
-        } else {
-            result = 600;//根据自己的需要更改
-            if (mode == MeasureSpec.AT_MOST) {
-                result = Math.min(result, size);
-            }
-        }
-        return result;
-
-    }
 
     @Override
     protected void onDraw(Canvas canvas) {

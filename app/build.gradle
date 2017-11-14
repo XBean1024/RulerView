@@ -1,11 +1,11 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 26
+    compileSdkVersion project.ANDROID_BUILD_SDK_VERSION as int
     defaultConfig {
         applicationId "com.smart.bean.rulerview"
         minSdkVersion 15
-        targetSdkVersion 26
+        targetSdkVersion project.ANDROID_BUILD_TARGET_SDK_VERSION as int
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
@@ -15,7 +15,34 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
+        debug {
+            /*
+            * buildConfigField 用来配置一些静态的全常量;
+            * 格式为 :
+            *       buildConfigField 'java 类型名','类型对应的变量名','value';
+            * 其中，'value',中的 value 根据类型，要与Java 语法保持一致，比如
+            * buildConfigField 'String', 'H5_BASE_URL', '"http://www.baidu.com"',""不能省略，否则编译不通过；
+            * 也就是说，所有测Java类型的值要“原封不动”被''（单引号）包裹着！
+            *
+            * value 的值也可以定义在 gradle.properties，此时，都不要''包裹，
+            * gradle.properties中的值，完全与Java 中的形式保持一致;
+            * 比如 String 类型：
+            *           BASE_URL_TEST = "https://www.baidu.com"
+            * 再比如，int:
+            *           INT_TEST = 20
+            * */
+            buildConfigField 'String', 'BASE_URL', BASE_URL_TEST
+            /*如果值 字符串 且  在这个文件里直接赋值
+            * 需要用 单引号 包裹起来'"555"',
+            * 否则在 BuildConfig.java中的变量不符合Java 语法
+            * */
+            buildConfigField 'String', 'H5_BASE_URL', '"555"'
+            buildConfigField 'int', 'VERSION_CODE_TESR', INT_TEST
+
+            buildConfigField 'boolean', 'VERSION_CODE_TEST', 'true'
+        }
     }
+    productFlavors
 }
 
 dependencies {

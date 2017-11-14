@@ -6,7 +6,6 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Rect;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.View;
 
 /**
@@ -37,7 +36,7 @@ public class ScaleView extends View {
 
         int width = Util.getWindowWidth() >> 1;
         int height = Util.getWindowHeight() >> 1;
-        Rect rect = new Rect(width - 200, height - 200, width + 200, height + 200);
+        Rect rect = new Rect(width - 400, height - 400, width + 400, height + 400);
         canvas.drawPoint(Util.getWindowWidth() >> 1, Util.getWindowHeight() >> 1, mPaint);//绘制屏幕中心点
 
         int num = 20;
