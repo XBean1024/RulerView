@@ -15,6 +15,11 @@
         <activity android:name=".ScaleViewActivity">
         </activity>
         <activity android:name=".WatchActivity">
+
+        </activity>
+        <activity
+            android:name=".WaterActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 

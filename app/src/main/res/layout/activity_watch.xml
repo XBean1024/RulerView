@@ -6,10 +6,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center"
+    android:orientation="vertical"
     tools:context="com.smart.bean.rulerview.WatchActivity">
 
     <com.smart.bean.rulerview.Watch
         android:background="@color/skyblue"
         android:layout_width="300dp"
         android:layout_height="100dp"/>
+    <Button
+        android:onClick="skip"
+        android:layout_width="200dp"
+        android:layout_height="200dp"/>
 </LinearLayout>

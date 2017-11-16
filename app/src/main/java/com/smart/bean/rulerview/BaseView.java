@@ -1,6 +1,7 @@
 package com.smart.bean.rulerview;
 
 import android.content.Context;
+import android.graphics.Paint;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.view.View;
@@ -15,6 +16,9 @@ import android.view.View;
 
 public class BaseView extends View {
     public final String TAG = this.getClass().getSimpleName();
+    protected Paint mPaint;
+    protected int mViewWidth;
+    protected int mViewHeight;
     public BaseView(Context context) {
         super(context);
     }
@@ -22,6 +26,14 @@ public class BaseView extends View {
     public BaseView(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
     }
+
+    @Override
+    protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
+        super.onMeasure(widthMeasureSpec, heightMeasureSpec);
+        mViewWidth = measureWidth(widthMeasureSpec);//得到view的宽度
+        mViewHeight = measureHeight(heightMeasureSpec);//view 的高度
+    }
+
     protected int measureHeight(int measureSpec) {
         int result = 0;
         int mode = MeasureSpec.getMode(measureSpec);
